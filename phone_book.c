@@ -216,3 +216,16 @@ int delete(FILE *db_file, char *name) {
   free_entries(base);
   return deleted;
 }
+
+int search(FILE *db_file, char *name)
+{entry *p=load_entries(db_file);
+ entry *base=p;
+ while(p!=NULL)
+   if (strcmp(p->name, name)==0)
+     p=p->name;
+ write_all_entries(base);
+ free_entries(base);
+}
+
+}
+  
